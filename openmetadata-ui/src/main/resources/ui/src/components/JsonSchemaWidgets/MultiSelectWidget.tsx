@@ -35,6 +35,7 @@ const MultiSelectWidget: FC<WidgetProps> = ({
       onFocus={() => onFocus(rest.id, rest.value)}>
       {(rest.options.enumOptions ?? []).map((option) => (
         <Select.Option key={uniqueId()} value={option.value}>
+          {/* 正確な原因はわからないがおそらくここで文字列を先頭大文字にしているのが原因。ここを修正すればうまくいく気がする */}
           {capitalize(option.label)}
         </Select.Option>
       ))}
