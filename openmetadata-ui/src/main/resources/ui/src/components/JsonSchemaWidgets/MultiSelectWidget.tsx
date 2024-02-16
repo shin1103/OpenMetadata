@@ -36,6 +36,7 @@ const MultiSelectWidget: FC<WidgetProps> = ({
       {(rest.options.enumOptions ?? []).map((option) => (
         <Select.Option key={uniqueId()} value={option.value}>
           {/* 正確な原因はわからないがおそらくここで文字列を先頭大文字にしているのが原因。ここを修正すればうまくいく気がする */}
+          {/* 上記は違っていて、ここで受け取ったoption.valueがSelect本体のvalueとしてセットされるがそれがうまく文字列として反映されていない様子 */}
           {capitalize(option.label)}
         </Select.Option>
       ))}
